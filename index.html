@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +9,12 @@
       margin: 0; padding: 0; overflow: hidden; height: 100%;
       font-family: Arial, sans-serif; color: #fff;
     }
-
-    /* Video background */
     #bg-video {
       position: fixed;
       right: 0; bottom: 0;
       min-width: 100%; min-height: 100%;
       z-index: -1;
     }
-
     section {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
@@ -24,11 +22,9 @@
       text-align: center;
       backdrop-filter: brightness(0.8);
     }
-
     #entrance, #clubhouse, #members {
       display: flex; flex-direction: column; justify-content: center; align-items: center;
     }
-
     #hoop {
       width: 200px; height: 200px;
       background: radial-gradient(circle at center, #00ffff44, transparent 70%);
@@ -36,52 +32,47 @@
       animation: pulse 2s infinite, float 4s ease-in-out infinite;
       cursor: pointer; margin-bottom: 20px;
     }
-
     @keyframes pulse {
       0% { box-shadow: 0 0 20px #00ffff; }
       50% { box-shadow: 0 0 60px #00ffff; }
       100% { box-shadow: 0 0 20px #00ffff; }
     }
-
     @keyframes float {
       0% { transform: translateY(0); }
       50% { transform: translateY(-20px); }
       100% { transform: translateY(0); }
     }
-
     button {
       background: #00ffff; border: none; color: #002a5c;
       padding: 10px 20px; font-weight: bold; border-radius: 10px;
       cursor: pointer; margin: 10px;
     }
-
     h1, h2, p {
       margin: 10px 0;
     }
   </style>
 </head>
 <body>
-
-  <!-- Background video (replace URL with your own hosted ocean video) -->
+  <!-- ✅ Underwater background video -->
   <video autoplay muted loop id="bg-video">
     <source src="https://cdn.pixabay.com/vimeo/570527215/Underwater%20video.mp4?width=1920&hash=ae771f7e0f1f0516ef365a846d8121f28c54b6b1" type="video/mp4">
   </video>
 
-  <!-- Entrance -->
+  <!-- ✅ Entrance -->
   <section id="entrance">
     <div id="hoop"></div>
     <h1>Welcome to Dolphin Club</h1>
     <p>Click the hoop to enter the clubhouse</p>
   </section>
 
-  <!-- Clubhouse -->
+  <!-- ✅ Clubhouse -->
   <section id="clubhouse">
     <h1>Dolphin Clubhouse</h1>
     <p>Relax and enjoy the underwater vibes.</p>
     <button id="toMembers">Enter Members-Only Room</button>
   </section>
 
-  <!-- Members-Only -->
+  <!-- ✅ Members-Only -->
   <section id="members">
     <h1>Exclusive Members Lounge</h1>
     <h2>Access Private Chat & Perks</h2>
@@ -91,16 +82,16 @@
   </section>
 
   <script>
-    // Start with entrance visible
+    // ✅ Show entrance first
     document.getElementById('entrance').style.display = 'flex';
 
-    // Click hoop to enter clubhouse
+    // ✅ Click hoop → show clubhouse
     document.getElementById('hoop').onclick = () => {
       document.getElementById('entrance').style.display = 'none';
       document.getElementById('clubhouse').style.display = 'flex';
     };
 
-    // Click to go to members-only
+    // ✅ Click to members-only → fake check
     document.getElementById('toMembers').onclick = () => {
       const isHolder = confirm("Are you a verified dolphin holder?");
       if (isHolder) {
@@ -111,6 +102,5 @@
       }
     };
   </script>
-
 </body>
 </html>
