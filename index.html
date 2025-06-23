@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dolphin Club — One Page</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; overflow: hidden; height: 100%;
+      background: #002a5c;
+      font-family: sans-serif; color: #fff;
+    }
+
+    section {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: none; /* all hidden by default */
+    }
+
+    #entrance, #clubhouse, #members {
+      display: flex; justify-content: center; align-items: center; flex-direction: column;
+    }
+
+    #hoop {
+      width: 200px; height: 200px;
+      border: 5px solid #00ffff; border-radius: 50%;
+      animation: pulse 2s infinite, float 4s ease-in-out infinite;
+      cursor: pointer; margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px #00ffff; }
+      50% { box-shadow: 0 0 60px #00ffff; }
+      100% { box-shadow: 0 0 20px #00ffff; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    button {
+      background: #00ffff; border: none; color: #002a5c;
+      padding: 10px 20px; font-weight: bold; border-radius: 10px;
+      cursor: pointer; margin: 10px;
+    }
+
+    .hidden { display: none; }
+
+    h1, h2 { margin: 20px; }
+  </style>
+</head>
+<body>
+
+  <!-- Entrance Section -->
+  <section id="entrance">
+    <div id="hoop"></div>
+    <h1>Welcome to Dolphin Club</h1>
+    <p>Click the hoop to enter the clubhouse</p>
+  </section>
+
+  <!-- Clubhouse Section -->
+  <section id="clubhouse">
+    <h1>🐬 Dolphin Clubhouse 🐬</h1>
+    <p>Relax and enjoy the underwater vibes.</p>
+    <button id="toMembers">Enter Members-Only Room</button>
+  </section>
+
+  <!-- Members-Only Section -->
+  <section id="members">
+    <h1>💎 Exclusive Members Lounge 💎</h1>
+    <h2>Access Private Chat & Perks</h2>
+    <button onclick="alert('Open Discord link here')">Join Discord</button>
+    <button onclick="alert('Claim Airdrop here')">Claim Airdrops</button>
+    <button onclick="alert('See Secret Announcements')">Secret Announcements</button>
+  </section>
+
+  <script>
+    // Start with entrance visible
+    document.getElementById('entrance').style.display = 'flex';
+
+    // Click hoop to enter clubhouse
+    document.getElementById('hoop').onclick = () => {
+      document.getElementById('entrance').style.display = 'none';
+      document.getElementById('clubhouse').style.display = 'flex';
+    };
+
+    // Click to go to members-only room (here you could check wallet)
+    document.getElementById('toMembers').onclick = () => {
+      // Simple fake check — add real wallet check here
+      const isHolder = confirm("Are you a verified dolphin holder?");
+      if (isHolder) {
+        document.getElementById('clubhouse').style.display = 'none';
+        document.getElementById('members').style.display = 'flex';
+      } else {
+        alert("Access denied: Dolphin NFT required!");
+      }
+    };
+  </script>
+
+</body>
+</html>
